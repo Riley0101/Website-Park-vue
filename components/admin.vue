@@ -14,7 +14,7 @@
         <th>Remove from Ticket</th>
         </tr>
         </thead>
-        <tbody v-for="item in getMenuItems" >
+        <tbody v-for="item in getTicketItems" >
         <tr>
             <td>{{item.name}}</td>
             <td><button class="btn btn-outline-danger btn-sm">x</button></td>

@@ -9,8 +9,8 @@
             </div>
         </div>
 
-<p><strong>Option 1:</strong></p>
-  <div class="form-group row">
+    <p><strong>Option 1:</strong></p>
+    <div class="form-group row">
             <label class="col-sm-3">Description</label>
             <div class="col-sm-9">
                 <input  type="text" class="form-control" rows="5" v-model="newTicket.description"></input>
@@ -18,12 +18,12 @@
         </div>
 
 
-<div class="form-group row">
-            <label class="col-sm-3">Price</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" v-model="newTicket.price">
-            </div>
+    <div class="form-group row">
+        <label class="col-sm-3">Price</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" v-model="newTicket.price">
         </div>
+    </div>
 
 <div class="form-group row">
     <button type="button" class="btn btn-success btn-block" @click="addTicketItem">Add</button>
