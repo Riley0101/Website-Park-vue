@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store ({
     state: {
-        menuItems: {
+        ticketItems: {
             1: {
                     'name': 'Park individual',
                     'description': 'Individual park tour',

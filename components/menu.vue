@@ -91,7 +91,6 @@
 
                     if(item.quantity ===0) {
                         this.removeFromBasket(item);
-
                     }
                 }
             }

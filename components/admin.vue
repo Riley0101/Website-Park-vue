@@ -14,7 +14,7 @@
         <th>Remove from Ticket</th>
         </tr>
         </thead>
-        <tbody v-for ="item in getMenuItems" >
+        <tbody v-for="item in getMenuItems" >
         <tr>
             <td>{{item.name}}</td>
             <td><button class="btn btn-outline-danger btn-sm">x</button></td>
@@ -23,9 +23,6 @@
         </table>
     </div>
 </div>
-
-
-
     <div class="row">
         <div class="col-sm-12 col-md-6">
         <h3>Tickets order:</h3>
@@ -61,16 +58,16 @@
 </template>
 
 <script>
-import NewMenu from '../components/NewTicket.vue'
+import NewTicket from '../components/NewTicket.vue'
 import Login from '../components/login.vue'
 export default {
     components: {
-        wwNewMenu: NewMenu,
+        wwNewTicket: NewTicket,
         wwLogin:Login
     },
        computed: {
-                getMenuItems() {
-                  return  this.$store.state.MenuItems
+                getTicketItems() {
+                  return  this.$store.state.TicketItems
                 }
             },
     beforeRouteLeave: (to,from,next) => {
