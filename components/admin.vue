@@ -14,7 +14,7 @@
         <th>Remove from Ticket</th>
         </tr>
         </thead>
-        <tbody v-for="item in getMenuItems" >
+        <tbody v-for="item in getTicketItems" >
         <tr>
             <td>{{item.name}}</td>
             <td><button class="btn btn-outline-danger btn-sm">x</button></td>
@@ -25,7 +25,7 @@
 </div>
     <div class="row">
         <div class="col-sm-12 col-md-6">
-        <h3>Tickets order:</h3>
+        <h3>Tickets order: {{ numberOfOrders }}</h3>
             <table class="table table-sm">
     <thead class="thead-default">
     <tr>
@@ -68,6 +68,9 @@ export default {
        computed: {
                 getTicketItems() {
                   return  this.$store.state.TicketItems
+                },
+                numberOfOrders() {
+                    return this.$store.getters.numberOfOrders
                 }
             },
     beforeRouteLeave: (to,from,next) => {

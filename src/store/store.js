@@ -23,6 +23,11 @@ export const store = new Vuex.Store ({
             'description': 'school park tour',
             'price': 50,
             }
-        }
+        },
+        orders: []
+    },
+    getters: {
+        getTicketItems: state => state.menuItems,
+        numberOfOrders: state => state.orders.length 
     }
 })

@@ -67,8 +67,9 @@
                 }
             },
             computed: {
-                getMenuItems() {
-                  return  this.$store.state.menuItems
+                getTicketItems() {
+                  // return  this.$store.state.menuItems
+                  return this.$store.getters.getTicketItems
                 }
             },
             methods: {
