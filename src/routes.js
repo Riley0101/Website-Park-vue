@@ -1,10 +1,10 @@
 import Home from '../components/home.vue'
 import Menu from '../components/menu.vue'
-import Admin from '../components/admin.vue'
 import About from '../components/about.vue'
 import Contact from '../components/contact.vue'
 import History from '../components/history.vue'
-import Booking from '../components/booking.vue' 
+import Booking from '../components/booking.vue'
+import Admin from '../components/admin.vue'
 
 export const routes = [
     {path: '/',

@@ -14,7 +14,7 @@
         <th>Remove from Ticket</th>
         </tr>
         </thead>
-        <tbody v-for="item in getTicketItems" >
+        <tbody v-for="item in getMenuItems" >
         <tr>
             <td>{{item.name}}</td>
             <td><button class="btn btn-outline-danger btn-sm">x</button></td>
@@ -66,8 +66,8 @@ export default {
         wwLogin:Login
     },
        computed: {
-                getTicketItems() {
-                  return  this.$store.state.TicketItems
+                getMenuItems() {
+                  return  this.$store.state.menuItems 
                 },
                 numberOfOrders() {
                     return this.$store.getters.numberOfOrders
