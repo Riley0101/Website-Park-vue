@@ -16,6 +16,8 @@
             <td><strong>{{ item.name }}</strong></td>
             <td>{{ item.description }}</td>
             <td>{{ item.price }}</td>
+            <td>{{ item.basket}}</td>
+
 
             <td><button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button></td> </td>
           </tr>
@@ -34,7 +36,7 @@
              <th>Total</th>
           </tr>
         </thead>
-        <tbody v-for="item in MenuItems">
+        <tbody v-for="item in basket">
         <tr>
             <td><button class="btn btn-sm"
              type="button"
