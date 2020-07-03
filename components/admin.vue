@@ -25,7 +25,7 @@
 </div>
     <div class="row">
         <div class="col-sm-12 col-md-6">
-        <h3>Tickets order:</h3>
+        <h3>Tickets order: {{ numberOfOrders }}</h3>
             <table class="table table-sm">
     <thead class="thead-default">
     <tr>
@@ -66,8 +66,11 @@ export default {
         wwLogin:Login
     },
        computed: {
-                getTicketItems() {
-                  return  this.$store.state.TicketItems
+                getMenuItems() {
+                  return  this.$store.state.menuItems 
+                },
+                numberOfOrders() {
+                    return this.$store.getters.numberOfOrders
                 }
             },
     beforeRouteLeave: (to,from,next) => {

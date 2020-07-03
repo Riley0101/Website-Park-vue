@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store ({
     state: {
-        ticketItems: {
+        menuItems: {
             1: {
                     'name': 'Park individual',
                     'description': 'Individual park tour',
@@ -23,6 +23,14 @@ export const store = new Vuex.Store ({
             'description': 'school park tour',
             'price': 50,
             }
-        }
+        },
+        orders: []
+    },
+    getters: {
+        getMenuItems: state => state.menuItems,
+        numberOfOrders: state => state.orders.length 
+    },
+    mutations: {
+        addOrder: (state, orders) => state.orders.push(orders)
     }
 })

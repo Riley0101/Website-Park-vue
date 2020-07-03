@@ -16,6 +16,8 @@
             <td><strong>{{ item.name }}</strong></td>
             <td>{{ item.description }}</td>
             <td>{{ item.price }}</td>
+            <td>{{ item.basket}}</td>
+
 
             <td><button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button></td> </td>
           </tr>
@@ -49,10 +51,10 @@
         </tbody>
         </table>
     <p>Order total: </p>
-    <button class="btn btn-success btn-block"> Buy Ticket</button>
+    <button class="btn btn-success btn-block" @click="addNewOrder"> Buy Ticket</button>
 </div>
     <div v-else>
-        <p>{{basketText}}</p>
+        <p>{{basketText}}</p> {{ this.$store.state.orders }}
     </div>
     </div>
   </div>
@@ -68,7 +70,9 @@
             },
             computed: {
                 getMenuItems() {
-                  return  this.$store.state.menuItems
+                  // return  this.$store.state.menuItems
+                  // return this.$store.state.menuItems
+                  return this.$store.getters.getMenuItems
                 }
             },
             methods: {
@@ -92,6 +96,11 @@
                     if(item.quantity ===0) {
                         this.removeFromBasket(item);
                     }
+                },
+                addNewOrder() {
+                  this.$store.commit('addOrder', this.basket)
+                  this.basket = []
+                  this.basketText = "Thank you, you have successfully completed the purchase"
                 }
             }
         }
