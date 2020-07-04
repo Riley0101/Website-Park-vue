@@ -28,6 +28,7 @@
 <script>
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
+ import {dbTicketRef } from './firebaseConfig'
 
 
 
@@ -38,7 +39,9 @@
       components:  {
     wwHeader: Header,
     wwFooter: Footer,
-    
+    },
+    created () {
+      this.$store.dispatch('setMenuRef', dbTicketRef)
     }
 }
 </script>
