@@ -28,7 +28,7 @@
 <script>
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
- import {dbTicketRef } from './firebaseConfig'
+ import {dbTicketRef, dbOrdersRef } from './firebaseConfig'
 
 
 
@@ -41,7 +41,8 @@
     wwFooter: Footer,
     },
     created () {
-      this.$store.dispatch('setMenuRef', dbTicketRef)
+      this.$store.dispatch('setMenuRef', dbTicketRef),
+      this.$store.dispatch('setOrdersRef', dbOrdersRef)
     }
 }
 </script>
