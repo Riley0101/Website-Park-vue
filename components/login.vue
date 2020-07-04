@@ -1,5 +1,9 @@
 <template>
         <div class="row">
+        <div>
+        <div>
+                <p>Logged in as: <br> {{ currentUser }}</p>
+        </div>
                 <form>
             <div class="form-group">
             <label>Email address</label>
@@ -9,8 +13,8 @@
         <label>Password</label>
         <input type="password" class="form-control" id="password" placeholder="Enter password">
         </div>
-        <button type="button" class="btn btn-primary" @click.prevent ="signIn">sign in</button>
-        <button type="button" class="btn btn-danger" @click.prevent ="signOut">Sign out</button>
+        <button type="button" class="btn btn-primary" @click.prevent="signIn">sign in</button>
+        <button type="button" class="btn btn-danger" @click.prevent="signOut">Sign out</button>
         </form>
         </div>
         </div>
@@ -18,6 +22,17 @@
 
 <script>
         import Firebase from 'firebase'
+        import { store } from '../src/store/store.js'
+        
+        Firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                        store.dispatch('setUser', user)
+                }else{
+                        store.dispatch('setUser', null)
+                }
+        });
+
+
         export default {
                 methods:{
                 signIn() {
@@ -41,6 +56,11 @@
                         }).catch(function(error){
                                 alert('error')
                         })
+                }
+        },
+        computed: {
+                currentUser() {
+                        return this.$store.getters.currentUser
                 }
         }
 }

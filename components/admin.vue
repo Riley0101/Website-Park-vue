@@ -60,18 +60,18 @@
 <script>
 import NewTicket from '../components/NewTicket.vue'
 import Login from '../components/login.vue'
+import { mapGetters } from 'vuex'
+
 export default {
     components: {
         wwNewTicket: NewTicket,
         wwLogin:Login
     },
        computed: {
-                getMenuItems() {
-                  return  this.$store.state.menuItems 
-                },
-                numberOfOrders() {
-                    return this.$store.getters.numberOfOrders
-                }
+            ...mapGetters([
+                'numberOfOrders',
+                'getMenuItems'
+            ])
             },
     beforeRouteLeave: (to,from,next) => {
         if(confirm("Have you remembered to log out?")== true) {
