@@ -31,10 +31,6 @@
  import {dbTicketRef, dbOrdersRef } from './firebaseConfig'
 
 
-
-
-
-
   export default {
       components:  {
     wwHeader: Header,
