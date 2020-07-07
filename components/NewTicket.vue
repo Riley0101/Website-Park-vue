@@ -9,7 +9,6 @@
             </div>
         </div>
 
-    <p><strong>Option 1:</strong></p>
     <div class="form-group row">
             <label class="col-sm-3">Description</label>
             <div class="col-sm-9">

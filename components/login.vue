@@ -18,7 +18,7 @@
         </form>
         </div>
         </div>
-        </div>
+        
 </template>
 
 <script>
@@ -55,7 +55,7 @@
                         Firebase.auth().signOut().then(function() {
                                 alert('logged out');
                         }).catch(function(error){
-                                alert('error')
+                                alert('error.');
                         })
                 }
         },

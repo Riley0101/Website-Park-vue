@@ -23,32 +23,47 @@
         </table>
     </div>
 </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
         <h3>Tickets order: {{ numberOfOrders }}</h3>
-            <table class="table table-sm" v-for="orders in getOrders">
-    <thead class="thead-default">
-    <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-        <div class="order-number">
-            <strong><em>Order Number: 1</em></strong>
-            <button class="btn btn-outline-danger btn-sm">x</button></td>
-        </div>
-        <tr v-for="orderItems in orders['.value']">
-        <td>{{orderItems.name}}</td>
-         <td>{{orderItems.description}}</td>
-          <td>{{orderItems.quantity}}</td>
-           <td>{{orderItems.price}}</td>
-        </tr>
-    </tbody>
-    </table>
+        <table class="table table-sm">
+                <thead class="thead-default">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr v-for="orders in getOrders">
+                    <td> orders.Item </td>
+                </tr>
+
+                </tbody>
+
+        </table> 
     </div>
-    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <hr>
 <div class="row">
     <div class="col-sm-12 col-lg-6">

@@ -13,13 +13,13 @@
         </thead>
         <tbody v-for="item in getMenuItems">
           <tr>
-            <td><strong>{{ item.name }}</strong></td>
+            <td><strong>{{ item }}</strong></td>
             <td>{{ item.description }}</td>
             <td>{{ item.price }}</td>
-            <td>{{ item.basket}}</td>
 
-
-            <td><button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button></td> </td>
+            <td>
+              <button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button>
+            </td> 
           </tr>
         </tbody>
       </table>
@@ -45,7 +45,7 @@
             <button class="btn btn-sm" 
             type="button"
             @click="increaseQuantity(item)">+</button></td>
-            <td>{{item.description}}</td>
+            <td>{{item.name}}</td>
             <td>{{item.price * item.quantity}}</td>
         </tr>
         </tbody>
@@ -79,8 +79,7 @@ import  { dbOrdersRef } from '../src/firebaseConfig'
             methods: {
                 addtoBasket(item) {
                     this.basket.push({
-                        name:item,
-                        description: item.description,
+                        name:item.name,
                         price:item.price,
                         quantity:1
                     })
