@@ -34,20 +34,20 @@
 <script>
     import { dbTicketRef } from '../src/firebaseConfig'
 
-    export default {
-        data() {
-            return {
-                newTicket: {
-                                'name': ' Eg. Park individual',
-                                'description': 'Eg. Individual park tour',
-                                'price': 15,
+        export default {
+            data() {
+                return {
+                    newTicket: {
+                                    'name': ' Eg. Park individual',
+                                    'description': 'Eg. Individual park tour',
+                                    'price': 15,
+                    }
+                }
+            },
+            methods: {
+                addTicketItem(){
+                    dbTicketRef.push(this.newTicket)
                 }
             }
-        },
-        methods: {
-            addTicketItem(){
-                dbTicketRef.push(this.newTicket)
-            }
         }
-    }
 </script>

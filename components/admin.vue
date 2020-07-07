@@ -27,7 +27,8 @@
 <div class="row">
     <div class="col-sm-12 col-md-6">
         <h3>Tickets order: {{ numberOfOrders }}</h3>
-        <table class="table table-sm">
+        <table class="table table-sm" v-for="(orders, index) in getOrders" :key="orders['.key']">
+
                 <thead class="thead-default">
                     <tr>
                         <th>Item</th>
@@ -35,34 +36,22 @@
                         <th>Price</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                <tr v-for="orders in getOrders">
-                    <td> orders.Item </td>
-                </tr>
-
+                        <div class="order-number">
+                            <strong><em>Order Number: {{ index +1  }}</em></strong>
+                            <button class="btn btn-outline-danger btn-sm">x</button></td>
+                        </div>
+                        
+                        <tr v-for="itm in orders">
+                                <td> {{itm.name}}</td>
+                                <td> {{itm.quantity}}</td>
+                                <td> {{itm.price}}</td>
+                        </tr>
                 </tbody>
-
         </table> 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <hr>
 <div class="row">
@@ -90,6 +79,17 @@ export default {
                 'getOrders'
             ])
             },
+    methods: {
+        removeMenuItem(key) {
+        dbMenuRef.child(key).remove()
+        },
+        removeOrderItem(key) {
+        dbOrdersRef.child(key).remove()
+        },
+        showme(something){
+            console.log(something);
+        },
+    },
     beforeRouteLeave: (to,from,next) => {
         if(confirm("Have you remembered to log out?")== true) {
             next();
