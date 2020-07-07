@@ -42,7 +42,8 @@
                 <tbody>
                         <div class="order-number">
                             <strong><em>Order Number: {{ index +1  }}</em></strong>
-                            <button class="btn btn-outline-danger btn-sm">x</button></td>
+                            <button class="btn btn-outline-danger btn-sm"
+                            @click="removeOrderItem(orders['.key'])">x</button></td>
                         </div>
                         
                         <tr v-for="itm in orders">
@@ -70,6 +71,7 @@ import Login from '../components/login.vue'
 import { mapGetters } from 'vuex'
 import { dbTicketRef, dbOrdersRef } from '../src/firebaseConfig'
 
+
 export default {
     components: {
         wwNewTicket: NewTicket,
@@ -90,7 +92,10 @@ export default {
             },
             removeOrderItem(key) {
             dbOrdersRef.child(key).remove()
-            }
+            },
+            removeOrderItem(key) {
+                dbOrdersRef.child(key)
+.remove()            }
         },
         beforeRouteLeave: (to,from,next) => {
             if(confirm("Have you remembered to log out?")== true) {
