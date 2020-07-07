@@ -5,6 +5,7 @@
     </div>
     <div class="container">
       <router-view></router-view>
+      <global-component></global-component>
     </div>
 
     <div class="container">
@@ -51,7 +52,7 @@
   }
 
   .card{
-    background: #faf0af;
+    background: #dcdcdc;
     margin: 20px 0;
     border-radius:0;
   }

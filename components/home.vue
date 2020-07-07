@@ -5,8 +5,7 @@
                     <div id = "panel-text">
                         <h1>Welcome to the TreePark</h1>
                         <h2>Our website</h2>
-                    <button>Discover</button>
-                    <button class ="btn btn success" @click="goToMenu">More</button>
+                    <button class ="btn btn-success" @click="goToMenu">Order a ticket!</button>
                     </div>
                 </div>   
             </div>
@@ -50,6 +49,8 @@
          min-width: 300px;
         display: inline-block;
     }
+
+   
 
 
 </style>
