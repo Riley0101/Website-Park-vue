@@ -44,5 +44,15 @@
 </script>
 
 <style>
+  header, footer {
+    background: #ECEEEF;
+    padding: 40 px 0;
+    font-size: 1em;
+  }
 
+  .card{
+    background: #faf0af;
+    margin: 20px 0;
+    border-radius:0;
+  }
 </style>

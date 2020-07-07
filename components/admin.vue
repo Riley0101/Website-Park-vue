@@ -50,7 +50,7 @@
                         <tr v-for="itm in orders">
                                 <td> {{itm.name}}</td>
                                 <td> {{itm.quantity}}</td>
-                                <td> {{itm.price}}</td>
+                                <td> {{itm.price | currency }}</td>
                         </tr>
                 </tbody>
         </table> 
@@ -109,3 +109,9 @@ export default {
             }
         }
 </script>
+
+<style>
+ .order-number {
+     margin:10px 0;
+ }
+</style>

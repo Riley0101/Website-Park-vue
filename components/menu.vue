@@ -14,7 +14,7 @@
           <tr>
             <td><strong>{{ item.name }}</strong></td>
             <td>{{ item.description }}</td>
-            <td>{{ item.price }}</td>
+            <td>{{ item.price | currency }}</td>
 
             <td>
               <button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button>
@@ -46,11 +46,11 @@
                         @click="increaseQuantity(item)">+</button>
               </td>
               <td>{{item.name}}</td>
-              <td>{{item.price * item.quantity  }}</td>
+              <td>{{item.price * item.quantity | currency }}</td>
           </tr>
         </tbody>
         </table>
-    <p>Order total: {{ total }}</p>
+    <p>Order total: {{ total | currency }}</p>
     <button class="btn btn-success btn-block" @click="addNewOrder"> Buy Ticket</button>
 </div>
     <div v-else>
