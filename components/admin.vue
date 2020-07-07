@@ -14,10 +14,12 @@
         <th>Remove from Ticket</th>
         </tr>
         </thead>
-        <tbody v-for="item in getMenuItems" >
+        <tbody v-for="(item, key) in getMenuItems" :key="item['.key']">
         <tr>
-            <td>{{item.name}}</td>
-            <td><button class="btn btn-outline-danger btn-sm">x</button></td>
+            <td>{{item.name}} </td>
+            <td><button class="btn btn-outline-danger btn-sm"
+                @click="removeMenuItem(item['.key'])">x</button></td>
+            
         </tr>
         </tbody>
         </table>
@@ -66,6 +68,7 @@
 import NewTicket from '../components/NewTicket.vue'
 import Login from '../components/login.vue'
 import { mapGetters } from 'vuex'
+import { dbTicketRef, dbOrdersRef } from '../src/firebaseConfig'
 
 export default {
     components: {
@@ -79,23 +82,22 @@ export default {
                 'getOrders'
             ])
             },
-    methods: {
-        removeMenuItem(key) {
-        dbMenuRef.child(key).remove()
+        
+        methods: {
+            removeMenuItem(key) {
+                console.log(key)
+            dbTicketRef.child(key).remove()
+            },
+            removeOrderItem(key) {
+            dbOrdersRef.child(key).remove()
+            }
         },
-        removeOrderItem(key) {
-        dbOrdersRef.child(key).remove()
-        },
-        showme(something){
-            console.log(something);
-        },
-    },
-    beforeRouteLeave: (to,from,next) => {
-        if(confirm("Have you remembered to log out?")== true) {
-            next();
-        }else{
-            next(false);
+        beforeRouteLeave: (to,from,next) => {
+            if(confirm("Have you remembered to log out?")== true) {
+                next();
+            }else{
+                next(false);
+                }
             }
         }
-    }
 </script>
