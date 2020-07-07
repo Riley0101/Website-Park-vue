@@ -1,5 +1,6 @@
 <template>
 <div>
+<section v-if="currentUser">
 <div class="row">
 <div class="col-sm-12  col-md-6">
 <!--New park component-->
@@ -55,6 +56,7 @@
         </table> 
     </div>
 </div>
+</section>
 
 <hr>
 <div class="row">
@@ -81,7 +83,8 @@ export default {
             ...mapGetters([
                 'numberOfOrders',
                 'getMenuItems',
-                'getOrders'
+                'getOrders',
+                'currentUser'
             ])
             },
         
