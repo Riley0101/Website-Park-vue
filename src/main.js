@@ -26,7 +26,6 @@ Vue.filter('currency', function(val) {
   return Accounting.formatMoney(val)
 })
 
-Vue.component('global-component', () => import('../components/menu.vue'))
 
 
 new Vue({
