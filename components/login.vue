@@ -2,7 +2,8 @@
         <div class="row">
         <div>
         <div>
-                <p>Logged in as: <br> {{ currentUser }}</p>
+                <p v-if="!currentUser">Please, login in to continue</p>
+                <p v-else>Logged in as: <br> {{ currentUser }}</p>
         </div>
                 <form>
             <div class="form-group">
@@ -18,7 +19,7 @@
         </form>
         </div>
         </div>
-        </div>
+        
 </template>
 
 <script>
@@ -55,7 +56,7 @@
                         Firebase.auth().signOut().then(function() {
                                 alert('logged out');
                         }).catch(function(error){
-                                alert('error')
+                                alert('error.');
                         })
                 }
         },
@@ -66,3 +67,9 @@
         }
 }
 </script>
+
+<style>
+        form {
+                margin: 20px 0;
+        }
+</style>

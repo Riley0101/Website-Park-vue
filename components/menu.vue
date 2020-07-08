@@ -8,18 +8,17 @@
             <th>Description</th>
             <th>Price</th>
             <th>Basket</th>
-
           </tr>
         </thead>
         <tbody v-for="item in getMenuItems">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
             <td>{{ item.description }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.basket}}</td>
+            <td>{{ item.price | currency }}</td>
 
-
-            <td><button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button></td> </td>
+            <td>
+              <button class="btn btn-sm btn-outline-success" type="button"@click="addtoBasket( item )">+</button>
+            </td> 
           </tr>
         </tbody>
       </table>
@@ -37,24 +36,25 @@
           </tr>
         </thead>
         <tbody v-for="item in basket">
-        <tr>
-            <td><button class="btn btn-sm"
-             type="button"
-             @click="decreaseQuantity(item)">-</button>
-            <span>{{item.quantity}}-</span>
-            <button class="btn btn-sm" 
-            type="button"
-            @click="increaseQuantity(item)">+</button></td>
-            <td>{{item.description}}</td>
-            <td>{{item.price * item.quantity}}</td>
-        </tr>
+          <tr>
+               <td><button class="btn btn-sm"
+                          type="button"
+                          @click="decreaseQuantity(item)">-</button>
+                <span>{{ item.quantity }}-</span>
+                <button class="btn btn-sm"
+                        type="button"
+                        @click="increaseQuantity(item)">+</button>
+              </td>
+              <td>{{item.name}}</td>
+              <td>{{item.price * item.quantity | currency }}</td>
+          </tr>
         </tbody>
         </table>
-    <p>Order total: </p>
+    <p>Order total: {{ total | currency }}</p>
     <button class="btn btn-success btn-block" @click="addNewOrder"> Buy Ticket</button>
 </div>
     <div v-else>
-        <p>{{basketText}}</p> {{ this.$store.state.orders }}
+        <p>{{basketText}}</p> 
     </div>
     </div>
   </div>
@@ -62,23 +62,32 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import  { dbOrdersRef } from '../src/firebaseConfig'
+
     export default  {
         data() {
             return{
-            basket: [],
-            basketText:'Your basket is empty'
+              basket: [],
+              basketText:'Your basket is empty'
                 }
             },
             computed: {
               ...mapGetters ([
                 'getMenuItems'
-              ])
+              ]),
+                total() {
+              var totalCost = 0;
+              for( var items in this.basket ) {
+                var individualItem = this.basket[items];
+                totalCost += individualItem.quantity * individualItem.price;
+              }
+        return totalCost
+      }
             },
             methods: {
                 addtoBasket(item) {
                     this.basket.push({
-                        name:item,
-                        description: item.description,
+                        name:item.name,
                         price:item.price,
                         quantity:1
                     })
@@ -97,7 +106,9 @@ import { mapGetters } from 'vuex'
                     }
                 },
                 addNewOrder() {
-                  this.$store.commit('addOrder', this.basket)
+                  // this.$store.commit('addOrder', this.basket)
+
+                  dbOrdersRef.push(this.basket)
                   this.basket = []
                   this.basketText = "Thank you, you have successfully completed the purchase"
                 }

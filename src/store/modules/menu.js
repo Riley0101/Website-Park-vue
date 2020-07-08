@@ -2,7 +2,6 @@ import { firebaseAction } from 'vuexfire'
 
 const state = {
     menuItems: []
-
 }
 
 const getters = {
@@ -10,15 +9,13 @@ const getters = {
 }
 
 const mutations= {
-
-
+    
 }
 
-const actions= {
-    setMenuRef : firebaseAction(({ bindFirebaseRef }, { ref }) => {
+const actions = {
+    setMenuRef: firebaseAction(({ bindFirebaseRef }, { ref }) => {
         bindFirebaseRef('menuItems', ref)
-        })
-
+    })
 }
 
 export default {

@@ -28,11 +28,7 @@
 <script>
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
- import {dbTicketRef } from './firebaseConfig'
-
-
-
-
+ import {dbTicketRef, dbOrdersRef } from './firebaseConfig'
 
 
   export default {
@@ -41,11 +37,22 @@
     wwFooter: Footer,
     },
     created () {
-      this.$store.dispatch('setMenuRef', dbTicketRef)
+      this.$store.dispatch('setMenuRef', dbTicketRef),
+      this.$store.dispatch('setOrdersRef', dbOrdersRef)
     }
 }
 </script>
 
 <style>
+  header, footer {
+    background: #ECEEEF;
+    padding: 40 px 0;
+    font-size: 1em;
+  }
 
+  .card{
+    background: #dcdcdc;
+    margin: 20px 0;
+    border-radius:0;
+  }
 </style>

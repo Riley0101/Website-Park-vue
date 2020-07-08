@@ -12,3 +12,4 @@ var firebaseConfig = {
   const firebaseApp = Firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.database()
   export const dbTicketRef = db.ref('Website')  
+  export const dbOrdersRef = db.ref('orders')

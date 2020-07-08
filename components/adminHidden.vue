@@ -1,6 +1,5 @@
 <template>
-<div>
-<section v-if="currentUser">
+<section>
 <div class="row">
 <div class="col-sm-12  col-md-6">
 <!--New park component-->
@@ -58,39 +57,28 @@
 </div>
 </section>
 
-<hr>
-<div class="row">
-    <div class="col-sm-12 col-lg-6">
-    <ww-login></ww-login>
-    </div>
-</div>
-    </div>
 </template>
 
 <script>
 import NewTicket from '../components/NewTicket.vue'
-import Login from '../components/login.vue'
 import { mapGetters } from 'vuex'
 import { dbTicketRef, dbOrdersRef } from '../src/firebaseConfig'
 
 
 export default {
     components: {
-        wwNewTicket: NewTicket,
-        wwLogin:Login
+        wwNewTicket: NewTicket
     },
        computed: {
             ...mapGetters([
                 'numberOfOrders',
                 'getMenuItems',
-                'getOrders',
-                'currentUser'
+                'getOrders'
             ])
             },
         
         methods: {
             removeMenuItem(key) {
-                console.log(key)
             dbTicketRef.child(key).remove()
             },
             removeOrderItem(key) {
@@ -109,9 +97,3 @@ export default {
             }
         }
 </script>
-
-<style>
- .order-number {
-     margin:10px 0;
- }
-</style>

@@ -9,7 +9,6 @@
             </div>
         </div>
 
-    <p><strong>Option 1:</strong></p>
     <div class="form-group row">
             <label class="col-sm-3">Description</label>
             <div class="col-sm-9">
@@ -35,20 +34,20 @@
 <script>
     import { dbTicketRef } from '../src/firebaseConfig'
 
-    export default {
-        data() {
-            return {
-                newTicket: {
-                                'name': ' Eg. Park individual',
-                                'description': 'Eg. Individual park tour',
-                                'price': 15,
+        export default {
+            data() {
+                return {
+                    newTicket: {
+                                    'name': ' Eg. Park individual',
+                                    'description': 'Eg. Individual park tour',
+                                    'price': 15,
+                    }
+                }
+            },
+            methods: {
+                addTicketItem(){
+                    dbTicketRef.push(this.newTicket)
                 }
             }
-        },
-        methods: {
-            addTicketItem(){
-                dbTicketRef.push(this.newTicket)
-            }
         }
-    }
 </script>
