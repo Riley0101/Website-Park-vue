@@ -3,8 +3,8 @@
             <div class = "row">
                 <div  class="col-sm12 text-center">
                     <div id = "panel-text">
-                        <h1>Welcome to the TreePark</h1>
-                        <h2>Our website</h2>
+                        <h1>Welcome to the Park</h1>
+                        <h2>Autumn offers!</h2>
                     <button class ="btn btn-success" @click="goToMenu">Order a ticket!</button>
                     </div>
                 </div>   
@@ -16,9 +16,8 @@
     export default{
         methods:{
             goToMenu(){
-                   this.$router.push ({ name: 'menuLink' })
+                this.$router.push ({ name: 'menuLink' })
             }
-         
         }
     }
 </script>
@@ -40,17 +39,13 @@
         margin:0 auto;
     }
 
-     #panel-text {
+    #panel-text {
         background:#eee;
         opacity:0.8;
         max-width: 60%;
-        padding: 50px;
+        padding: 40px;
         margin:80px auto;
-         min-width: 300px;
+        min-width: 300px;
         display: inline-block;
     }
-
-   
-
-
 </style>
